@@ -1,0 +1,83 @@
+MDBoxLayout:
+	ScreenManager:
+		id:main
+		canvas:
+			Color:
+				rgba:60/255, 179/255, 150/255,.6
+			Rectangle:
+				pos:self.pos
+				size:self.size
+		Screen:
+			name:"bb"
+				
+			MDTabs:
+				Tab:
+					title:"login admin"
+					icon:'language-python'
+					MDTextField:
+						id:name1
+						hint_text:"name 1"
+						pos_hint:{"center_y":.7}
+
+					MDTextField:
+						id:name2
+						hint_text:"namd 2"
+						pos_hint:{"center_y":.6}
+					MDTextField:
+						id:password
+						hint_text:"password"
+						password: True
+						pos_hint:{"center_y":.5}
+					MDRoundFlatButton:
+						text:"login"
+
+						pos_hint:{"center_y":.4,"center_x":.5}
+						on_press:app.log_in()
+				Tab:
+					title:"etc"
+					MDBoxLayout:
+						canvas:
+							Color:
+								rgba:1,1,0,1
+							Rectangle:
+								pos:self.pos
+								size:self.size
+						MDLabel:
+							text:"welcome i dont have any thing to make yet"
+							
+		Screen:
+			name:"sec"
+				
+			MDTabs:
+				Tab:
+					title:"add contents"
+					MDTextFieldRect:
+						id:Any
+						size_hint:1,.5
+						pos_hint:{"center_y":.75}
+
+					MDRectangleFlatButton:
+						text:"post"
+						pos_hint:{"center_y":.3,"center_x":.5}
+						on_press:app.add()
+				Tab:
+					title:"topics"
+					canvas:
+						Color:
+							rgba:0, 179/255, 113/255,.5
+						Rectangle:
+							pos:self.pos
+							size:self.size
+					RecycleView:
+						MDList:
+							id:topics
+					MDFlatButton:
+						text:"delete all"
+						on_press:app.delete("all")
+				Tab:
+					title:"delete"
+					RecycleView:
+						MDList:
+							id:delete
+
+
